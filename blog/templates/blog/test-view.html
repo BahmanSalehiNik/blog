@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block title %}
+    {% if title %}{{ title }}{% else %} Av | {{ block.super }} {% endif %}
+{% endblock title %}
+
+
+{% block content %}
+
+    <h1>{{ name|title }}</h1>
+    <h1>{{ lucky|add:buffer }}</h1>
+    <h1>{{ bdate|date:"Y-m-d" }}</h1>
+    <p>
+        {% if objects_list %}
+            <ul>
+            {% for o in objects_list %}
+                <li {% if forloop.counter|add:1|divisibleby:2 %}style="color:darkslateblue" {% else %} style="color: crimson"{% endif %}>
+                            {{ forloop.counter }} {{ o }}
+                </li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+    </p>
+{%  endblock content %}

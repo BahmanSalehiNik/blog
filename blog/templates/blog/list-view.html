@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+    {% if messages %}
+
+        {% for message in messages %}
+
+        {% endfor %}
+    {% endif %}
+    {{ user_status }}
+    {% for n in name_list %}
+         {{ n }}
+    {% endfor %}
+    {{ object_list }}
+    <ul>
+    {%  for o in object_list %}
+    <li>
+         <a href="/blog/{{ o.id }}">{{ o.title }}</a>
+    </li>
+    {% endfor %}
+    </ul>
+    <u1>Hello Hello</u1>
+
+{% endblock content %}

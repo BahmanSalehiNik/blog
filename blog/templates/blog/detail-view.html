@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>detail</title>
+</head>
+<body>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if messages.tags %} class="{{ message.tags }}" {% endif %}>
+            {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+    <h1>Post Detail</h1>
+    {{ object.title }} <small>{{ object.timestamp|date:"D d M Y f a" }}</small>
+    </br>
+    {{ object.content }}
+</body>
+</html>
